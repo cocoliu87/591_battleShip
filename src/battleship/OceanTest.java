@@ -19,7 +19,10 @@ class OceanTest {
 	void setUp() throws Exception {
 		ocean = new Ocean();
 	}
-	
+
+	/**
+	 * Test an empty ocean which is filled with emptyOcean objects.
+	 */
 	@Test
 	void testEmptyOcean() {
 		
@@ -44,7 +47,10 @@ class OceanTest {
 		assertEquals(9, ships[9][0].getBowRow());
 		assertEquals(0, ships[9][0].getBowColumn());
 	}
-	
+
+	/**
+	 * Test required ships were placed in the empty ocean.
+	 */
 	@Test
 	void testPlaceAllShipsRandomly() {
 		
@@ -100,6 +106,9 @@ class OceanTest {
 		assertEquals(totalSpaces - occupiedSpaces, numEmptySeas);
 	}
 
+	/**
+	 * Test ocean isOccupied() method works as expected with passed coordinates.
+	 */
 	@Test
 	void testIsOccupied() {
 
@@ -154,6 +163,9 @@ class OceanTest {
 		assertFalse(ocean.isOccupied(5, 9));
 	}
 
+	/**
+	 * Test ocean shootAt() method with various types of ship
+	 */
 	@Test
 	void testShootAt() {
 	
@@ -168,7 +180,8 @@ class OceanTest {
 		assertTrue(ocean.shootAt(1, 5));
 		assertFalse(destroyer.isSunk());
 		assertTrue(ocean.shootAt(0, 5));
-		
+		assertTrue(destroyer.isSunk());
+
 		//TODO
 		//More tests
 		
@@ -211,6 +224,9 @@ class OceanTest {
 		assertTrue(battleship.isSunk());
 	}
 
+	/**
+	 * Test if ocean getShotsFired() counting shots correctly.
+	 */
 	@Test
 	void testGetShotsFired() {
 		
@@ -300,10 +316,13 @@ class OceanTest {
 		assertTrue(ocean.shootAt(2, 6));
 		assertTrue(battleship.isSunk());
 		assertEquals(7, ocean.getShotsFired());
-		assertTrue(submarine1.shootAt(2, 3));
+		assertTrue(ocean.shootAt(2, 3));
 		assertEquals(8, ocean.getShotsFired());
 	}
 
+	/**
+	 * Test if ocean getHitCount() counts hitting ships correctly.
+	 */
 	@Test
 	void testGetHitCount() {
 		
@@ -370,7 +389,10 @@ class OceanTest {
 		assertEquals(10, ocean.getHitCount());
 		
 	}
-	
+
+	/**
+	 * Test if ocean counts sunk ships correctly.
+	 */
 	@Test
 	void testGetShipsSunk() {
 		
@@ -455,6 +477,9 @@ class OceanTest {
 		
 	}
 
+	/**
+	 * Test ocean method getShipArray() returning the reference of the array correctly.
+	 */
 	@Test
 	void testGetShipArray() {
 		
@@ -490,9 +515,6 @@ class OceanTest {
 		assertEquals("destroyer", shipArray[0][5].getShipType());
 		assertEquals("cruiser", shipArray[6][3].getShipType());
 		assertEquals("battleship", shipArray[7][9].getShipType());
-		
-		
-		
 	}
 
 }

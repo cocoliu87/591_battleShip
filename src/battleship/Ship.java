@@ -6,27 +6,29 @@ package battleship;
  */
 
 public abstract class Ship {
-	/*
+	/**
 	 * Defining instance variables 
 	 */
 	
-	// The row that contains the bow (front part of the ship)
+	/** The row that contains the bow (front part of the ship) */
 	private int bowRow;
 	
-	// The column that contains the bow (front part of the ship)
+	/** The column that contains the bow (front part of the ship) */
 	private int bowColumn;
 	
-	// The length of the ship
+	/** The length of the ship */
 	private int length;
-	
-	// A boolean that represents whether the ship is going to be placed horizontally or vertically
+
+	/**
+	 *	A boolean that represents whether the ship is going to be placed horizontally or vertically.
+ 	 */
 	private boolean horizontal;
 	
-	// An array of 4 booleans that indicate whether that part of the ship has been hit or not
+	/** An array of 4 booleans that indicate whether that part of the ship has been hit or not */
 	private boolean[] hit = new boolean[4];
 	
-	/* *
-	 * constructor for the Ship class
+	/**
+	 * Constructs a new ship object
 	 * @param length of the ship
 	 */
 	public Ship(int length) {
@@ -37,7 +39,7 @@ public abstract class Ship {
 		this.hit[3] = false;
 	}
 	
-	/* *
+	/**
 	 * Gets the ship length.
 	 * @return the ship length.
 	 */
@@ -46,7 +48,7 @@ public abstract class Ship {
 	}
 	
 	 
-	/* *
+	/**
 	 * Gets the row corresponding to the position of the bow.
 	 * @return the position of the bow.
 	 */
@@ -55,7 +57,7 @@ public abstract class Ship {
 	}
 	
 	
-	/* *
+	/**
 	 * Gets the bow column location.
 	 * @return the bow column location.
 	 */
@@ -64,7 +66,7 @@ public abstract class Ship {
 	}
 	
 
-	/* *
+	/**
 	 * Gets the hit array.
 	 * @return the hit array.
 	 */
@@ -72,7 +74,7 @@ public abstract class Ship {
 		return this.hit;
 	}
 	
-	/* *
+	/**
 	 * Gets whether the ship is horizontal or not.
 	 * @return whether the ship is horizontal or not.
 	 */
@@ -80,42 +82,49 @@ public abstract class Ship {
 		return this.horizontal;
 	}
 	
-	/* *
+	/**
 	 * Sets the value of bowRow
-	 * @param the value of bowRow.
+	 * @param row
+	 *        the value of bowRow.
 	 */
 	public void setBowRow(int row) {
 		this.bowRow = row;
 	}
 	
-	/* *
+	/**
 	 * Sets the value of bowColumn
-	 * @param the value of bowColumn.
+	 * @param column
+	 *        the value of bowColumn.
 	 */
 	public void setBowColumn(int column) {
 		this.bowColumn = column;
 	}
 	
-	/* *
+	/**
 	 * Sets the value of the instance variable horizontal
-	 * @param the value of the instance variable horizontal.
+	 * @param horizontal
+	 *        the value of the instance variable horizontal.
 	 */
 	public void setHorizontal(boolean horizontal) {
 		this.horizontal = horizontal; 
 	}
 	
-	/* *
+	/**
 	 * the every specific type of ship as a String.
 	 * @return the every specific type of ship as a String.
 	 */
 	public abstract String getShipType(); 
 	
-	/* *
+	/**
 	 * check if it is okay to put a ship of this length with its bow in this location.
-	 * @param the bowRow of the ship
-	 * @param the bowColumn of the ship
-	 * @param the horizontal of the ship
-	 * @param the ocean 
+	 * @param row
+	 *        the bowRow of the ship
+	 * @param column
+	 *        the bowColumn of the ship
+	 * @param horizontal
+	 *        the horizontal of the ship
+	 * @param ocean
+	 *        the ocean
 	 * @return true/false if there can be place a ship.
 	 */
 	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean) {
@@ -131,7 +140,7 @@ public abstract class Ship {
         }
 		
 		// check if the ship of the given row and column is out of 10X10.
-		else if (horizontal) {
+		if (horizontal) {
 			for (int i = column - (this.length-1); i <= column; i++) {
 				if (i < 0) {
 					return false;
@@ -141,7 +150,7 @@ public abstract class Ship {
 	        	}
 			}
 		}
-		else if (!horizontal) {
+		else {
 			for (int i = row - (this.length-1); i <= row; i++) {
 				if (i < 0) {
 					return false;
@@ -154,11 +163,14 @@ public abstract class Ship {
 		return true;
 	}
 	
-	/* *
+	/**
 	 * check if there are another ships around of the given row and column.
-	 * @param the bowRow of the ship
-	 * @param the bowColumn of the ship
-	 * @param the ocean 
+	 * @param row
+	 *        the bowRow of the ship
+	 * @param column
+	 *        the bowColumn of the ship
+	 * @param ocean
+	 *        the ocean
 	 * @return true/false if there is another ship around.
 	 */
 	boolean okOfRange(int row, int column, Ocean ocean) {
@@ -178,12 +190,16 @@ public abstract class Ship {
 		return true;
 	}
 	
-	/* *
+	/**
 	 * Puts the ship in the ocean.
-	 * @param the bowRow of the ship
-	 * @param the bowColumn of the ship
-	 * @param the horizontal of the ship
-	 * @param the ocean 
+	 * @param row
+	 *        the bowRow of the ship
+	 * @param column
+	 *        the bowColumn of the ship
+	 * @param horizontal
+	 *        the horizontal of the ship
+	 * @param ocean
+	 *        the ocean
 	 */
 	void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 		if (okToPlaceShipAt(row, column, horizontal, ocean)) {
@@ -202,10 +218,12 @@ public abstract class Ship {
 		}
 	}
 	
-	/* *
+	/**
 	 * check if hit a part of the ship occupies the given row and column, and the ship hasn’t been sunk.
-	 * @param the bowRow of the ship
-	 * @param the bowColumn of the ship
+	 * @param row
+	 *        the bowRow of the ship
+	 * @param column
+	 *        the bowColumn of the ship
 	 * @return true/false if there is shoot or not.
 	 */
 	boolean shootAt(int row, int column) {
@@ -224,7 +242,7 @@ public abstract class Ship {
 		return false;
 	}
 	
-	/* *
+	/**
 	 * check if every part of the ship has been hit.
 	 * @return true/false if every part of the ship has been hit. or not.
 	 */
@@ -237,10 +255,11 @@ public abstract class Ship {
 		return true;
 	}
 	
-	/* *
-	 * @Override
+	/**
+	 * Overrides toString() method
 	 * @return a single-character String to use in the Ocean’s print method.
 	 */
+	@Override
 	public String toString() {
 		
 		// return ”s” if the ship has been sunk and ”x” if it has not been sunk.

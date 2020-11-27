@@ -15,6 +15,9 @@ class ShipTest {
 		ocean = new Ocean();
 	}
 
+	/**
+	 * Test Ship getLength() returning correct defined ship length.
+	 */
 	@Test
 	void testGetLength() {
 		ship = new Battleship();
@@ -34,10 +37,11 @@ class ShipTest {
 		
 		ship = new EmptySea();
 		assertEquals(1, ship.getLength());
-		
-		
 	}
 
+	/**
+	 * Test Ship getBowRow() returning correct coordinate of row of the ship's bow.
+	 */
 	@Test
 	void testGetBowRow() {
 		Ship battleship = new Battleship();
@@ -86,6 +90,9 @@ class ShipTest {
 		
 	}
 
+	/**
+	 * Test Ship getBowRow() returning correct coordinate of column of the ship's bow.
+	 */
 	@Test
 	void testGetBowColumn() {
 		ocean.setupEmptyOcean();
@@ -134,6 +141,9 @@ class ShipTest {
 		assertEquals(column, submarine.getBowColumn());
 	}
 
+	/**
+	 * Test if the hit array of a ship gets updated correctly.
+	 */
 	@Test
 	void testGetHit() {
 		ocean.setupEmptyOcean();
@@ -182,6 +192,9 @@ class ShipTest {
 		assertFalse(ship.getHit()[3]);
 	}
 
+	/**
+	 * Test if ship property Horizontal setter and getter work as expected.
+	 */
 	@Test
 	void testIsHorizontal​() {
 		ocean.setupEmptyOcean();
@@ -220,6 +233,9 @@ class ShipTest {
 		assertFalse(submarine.isHorizontal());
 	}
 
+	/**
+	 * Test Ship method getShipType() returning correct ship's type.
+	 */
 	@Test
 	void testGetShipType() {
 		ship = new Battleship();
@@ -240,6 +256,9 @@ class ShipTest {
 		assertEquals("empty", ship.getShipType());
 	}
 
+	/**
+	 * Test Ship's bow row setter.
+	 */
 	@Test
 	void testSetBowRow() {
 		Ship battleship = new Battleship();
@@ -274,6 +293,9 @@ class ShipTest {
 		assertEquals(row, submarine.getBowRow());
 	}
 
+	/**
+	 * Test Ship's bow column setter.
+	 */
 	@Test
 	void testSetBowColumn() {
 		Ship battleship = new Battleship();
@@ -287,6 +309,9 @@ class ShipTest {
 		//More tests
 	}
 
+	/**
+	 * Test Ship's property Horizontal setter.
+	 */
 	@Test
 	void testSetHorizontal() {
 		Ship battleship = new Battleship();
@@ -321,6 +346,9 @@ class ShipTest {
 		assertTrue(submarine.isHorizontal());
 	}
 
+	/**
+	 * Test Ship's method okToPlaceShipAt() with coordinates and ocean objects as parameters.
+	 */
 	@Test
 	void testOkToPlaceShipAt() {
 		
@@ -360,7 +388,10 @@ class ShipTest {
 		assertTrue(ok, "OK to place ship here.");
 		
 	}
-	
+
+	/**
+	 * Test if Ship method okToPlaceShipAt() working correctly with potential neighbored Ships.
+	 */
 	@Test
 	void testOkToPlaceShipAtAgainstOtherShipsOneBattleship() {
 		
@@ -422,6 +453,9 @@ class ShipTest {
 		assertTrue(ok7, "Not OK to place ship vertically adjacent below.");
 	}
 
+	/**
+	 * Test if Ship's method placeShipAt() works correctly with given coordinates and ocean object.
+	 */
 	@Test
 	void testPlaceShipAt() {
 		ocean.setupEmptyOcean();
@@ -471,6 +505,9 @@ class ShipTest {
 		
 	}
 
+	/**
+	 * Test Ship's method shootAt() working correctly with given coordinates of a ocean.
+	 */
 	@Test
 	void testShootAt() {
 		ocean.setupEmptyOcean();
@@ -507,7 +544,10 @@ class ShipTest {
 		boolean[] hitArray2 = {false, true, false, false};
 		assertArrayEquals(hitArray2, battleship2.getHit());
 	}
-	
+
+	/**
+	 * Test Ship's method isSunk() working correctly.
+	 */
 	@Test
 	void testIsSunk() {
 		ocean.setupEmptyOcean();
@@ -572,6 +612,9 @@ class ShipTest {
 		assertTrue(battleship.isSunk());
 	}
 
+	/**
+	 * Test the overridden Ship's method toString() printing correctly based on Ship's situation.
+	 */
 	@Test
 	void testToString() {
 		ocean.setupEmptyOcean();
@@ -632,9 +675,6 @@ class ShipTest {
 		assertEquals("x", submarine.toString());
 		submarine.shootAt(9, 1);
 		assertEquals("s", submarine.toString());
-		
-		
-		
 	}
 
 }

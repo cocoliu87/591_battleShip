@@ -16,9 +16,10 @@ public class Cruiser extends Ship{
 	}
 
 	/**
-	 * @Override
+	 * Overrides getShopType() method
 	 * @return the type of the cruiser.
 	 */
+	@Override
 	public String getShipType() {
 		String shiptype = "cruiser";
 		return shiptype;

@@ -15,9 +15,10 @@ public class Destroyer extends Ship{
 		super(lengthOfDestroyer);
 	} 
 	/**
-	 * @Override
+	 * Overrides getShipType() method
 	 * @return the type of the destroyer.
-	 */@Override
+	 */
+	@Override
 	public String getShipType() {
 		String shiptype = "destroyer";
 		return shiptype;

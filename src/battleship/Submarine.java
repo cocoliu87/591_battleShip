@@ -17,9 +17,10 @@ public class Submarine extends Ship{
 	}
 
 	/**
-	 * @Override
+	 * Overrides getShipType() method
 	 * @return the type of the submarine.
 	 */
+	@Override
 	public String getShipType() {
 		String shiptype = "submarine";
 		return shiptype;

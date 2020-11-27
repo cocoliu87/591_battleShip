@@ -17,9 +17,10 @@ public class Battleship extends Ship{
 		};
 	
 	/**
-	 * @Override
+	 * Overrides getShipType() method.
 	 * @return the type of the battleship.
 	 */
+	@Override
 	public String getShipType() {
 		String shiptype = "battleship";
 		return shiptype;
