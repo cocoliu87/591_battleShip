@@ -38,10 +38,11 @@ public class BattleshipGame {
 
 				}
 				ocean.shootAt(x, y);
-				ocean.print();
 				System.out.println("You have " + ocean.getShotsFired() + " times shots.");
 				System.out.println("You have " + ocean.getHitCount() + " times hits.");
+				ocean.print();
 			}
+			System.out.println("Game is over. You have shot "+ocean.getShotsFired()+" times.");
 			System.out.println("Do you want to play again?(Y/N)");
 			playAgain = input.nextLine();
 			if (playAgain.toUpperCase().equals("Y")) {

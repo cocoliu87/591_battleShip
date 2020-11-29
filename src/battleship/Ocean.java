@@ -174,8 +174,12 @@ public class Ocean {
 					this.hitCount += 1;
 				}
 				boolean hit = ships[row][column].shootAt(row, column);
+				if (hit) {
+					System.out.println("You hit a ship.");
+				}
 				if (hit && ships[row][column].isSunk()) {
 					this.shipsSunk ++;
+					System.out.println("You just sank a ship - "+ships[row][column].getShipType());
 				}
 				return hit;
 			}
@@ -186,6 +190,7 @@ public class Ocean {
 		}
 		else {
 			ships[row][column].getHit()[0] = true;
+			System.out.println("You missed.");
 			return false;
 		}
 	}
