@@ -1,17 +1,19 @@
 package battleship;
 
 /**
- * subclass of the Ship class.
+ * Subclass of the Ship class defines Battleship ship type.
  * @author Yingqiu
  */
-
-
 public class Battleship extends Ship{
-	
 	// static final variable
+	/**
+	 * Length of a Battleship ship.
+	 */
 	static final int lengthOfBattleship = 4;
-	
-	// get the length of battleship.
+
+	/**
+	 * Constructs a Battleship ship which's length is 4.
+	 */
 	public Battleship() {
 		super(lengthOfBattleship);
 		};

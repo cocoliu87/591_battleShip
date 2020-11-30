@@ -1,12 +1,11 @@
 package battleship;
 
-/**
- * a 10x10 array of Ships, representing an “ocean”, and some methods to manipulate it.
- * @author Yingqiu
- */
-
 import java.util.Random;
 
+/**
+ * Ocean is represented by a 10x10 array, named as Ships, and maintains some methods to run the game with ships.
+ * @author Yingqiu
+ */
 public class Ocean {
 	/**
 	 * Defining instance variables 
@@ -29,19 +28,28 @@ public class Ocean {
 	/** The number of ships sunk (10 ships in all) */
 	private int shipsSunk;
 	
-	/** the length of each type of ship */
+	/** The number of Battleship will be created */
 	static int NUM_BATTLESHIPS = 1;
+
+	/** The number of Cruiser will be created */
 	static int NUM_CRUISERS = 2;
+
+	/** The number of Destroyer will be created */
 	static int NUM_DESTROYERS = 3;
+
+	/** The number of Submarine will be created */
 	static int NUM_SUBMARINES = 4;
+
+	/** The size of Ocean, represented by a 2-D array */
 	static int OCEAN_SIZE = 10;
 	
 	// constructor
 	/**
-	 * Constructs an ocean of a a 10x10 array of Ships
+	 * Constructs an ocean with a a 10x10 array of Ships
+	 * setup up an empty ocean.
 	 */
 	public Ocean() {
-		this.ships = new Ship[10][10];
+		this.ships = new Ship[OCEAN_SIZE][OCEAN_SIZE];
 		setupEmptyOcean();
 	}
 	
@@ -62,9 +70,11 @@ public class Ocean {
 		this.shipsSunk = 0;
 		this.hits = new boolean[ships.length][ships[0].length];
 	}
-	
-	
-	// Place all ten ships randomly on the (initially empty) ocean.
+
+
+	/**
+	 * Place all ten ships randomly on the (initially empty) ocean.
+	 */
 	void placeAllShipsRandomly() {
 		randomOfPlace(NUM_BATTLESHIPS, 4);
 		randomOfPlace(NUM_CRUISERS, 3);
@@ -140,7 +150,7 @@ public class Ocean {
 	}
 	
 	/**
-	 * check if the given location contains a ship
+	 * Check if the given location contains a ship
 	 * @param row
 	 *        the row of the location.
 	 * @param column
@@ -152,7 +162,7 @@ public class Ocean {
 	}
 	
 	/**
-	 * check if  the given location contains a ”real” ship
+	 * Check if  the given location contains a ”real” ship
 	 * @param row
 	 *        the row of the location.
 	 * @param column
@@ -220,7 +230,7 @@ public class Ocean {
 	}
 	
 	/**
-	 * check if all ships have been sunk and if game is over.
+	 * Check if all ships have been sunk and if game is over.
 	 * @return true/false if if all ships have been sunk or not.
 	 */
 	boolean isGameOver() {
@@ -264,14 +274,11 @@ public class Ocean {
 	 */
 	private String shipToString(int r, int c) {
 		Ship ship = ships[r][c];
-//		if (ship instanceof EmptySea || ship.isSunk()) {
-//			return ship.toString();
-//		}
 		return hits[r][c]? ship.toString() : ".";
 	}
 
 	/**
-	 * check if the coordinates are valid to the ocean
+	 * Check if the coordinates are valid to the ocean
 	 * @param r
 	 * 		  the row of the location.
 	 * @param c

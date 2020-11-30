@@ -7,14 +7,27 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * OceanTest maintains unit test cases for Ocean and its methods.
+ * @author Yingqiu
+ */
 class OceanTest {
-
+	/** The ocean variable represents a Ocean that will be tested through all test cases. */
 	Ocean ocean;
+
+	/** The numbers of four ship types are expected to initialize the game. */
 	static int NUM_BATTLESHIPS = 1;
 	static int NUM_CRUISERS = 2;
 	static int NUM_DESTROYERS = 3;
 	static int NUM_SUBMARINES = 4;
+
+	/** The size of Ocean 2-D array ships. */
 	static int OCEAN_SIZE = 10;
+
+	/**
+	 * Set up a new Ocean object to be used in unit tests.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		ocean = new Ocean();

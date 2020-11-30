@@ -5,11 +5,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * ShipTest maintains the unit test cases for Ship and its subclasses' methods.
+ * @author Yingqiu
+ */
 class ShipTest {
-
+	/** The Ocean object will be used through the unit tests. */
 	Ocean ocean;
+
+	/** The Ship object will be initialized as various Ship types cross the unit tests. */
 	Ship ship;
-	
+
+	/**
+	 * Set up a new Ocean object to be used in unit tests.
+	 * @throws Exception
+	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		ocean = new Ocean();
@@ -351,7 +361,6 @@ class ShipTest {
 	 */
 	@Test
 	void testOkToPlaceShipAt() {
-		
 		//test when other ships are not in the ocean
 		ocean.setupEmptyOcean();
 		Ship battleship = new Battleship();

@@ -1,16 +1,18 @@
 package battleship;
 
 /**
- * subclass of the Ship class.
+ * Subclass of the Ship class defines EmptySea type, unoccupied locations in an Ocean.
  * @author Yingqiu
  */
-
-
 public class EmptySea extends Ship {
-	
-	/** set the length of empty sea as 1. */
+	/**
+	 * Length of an EmptyOcean.
+	 */
+	static final int lengthOfEmptyOcean = 1;
+
+	/** Constructs an EmptyOcean which's length is 1. */
 	public EmptySea() {
-		super(1);
+		super(lengthOfEmptyOcean);
 	}
 	
 	/**
@@ -49,7 +51,6 @@ public class EmptySea extends Ship {
 		else {
 			return ".";
 		}
-		
 	}
 
 	/**

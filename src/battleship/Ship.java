@@ -1,10 +1,9 @@
 package battleship;
 
 /**
- * describes the characteristics common to all ships.
+ * Describes the characteristics common to all ships.
  * @author Yingqiu
  */
-
 public abstract class Ship {
 	/**
 	 * Defining instance variables 
@@ -28,8 +27,9 @@ public abstract class Ship {
 	private boolean[] hit = new boolean[4];
 	
 	/**
-	 * Constructs a new ship object
-	 * @param length of the ship
+	 * Constructs a new Ship object
+	 * @param length
+	 *        the length of a ship
 	 */
 	public Ship(int length) {
 		this.length = length;
@@ -110,13 +110,13 @@ public abstract class Ship {
 	}
 	
 	/**
-	 * the every specific type of ship as a String.
+	 * Get the specific type of ship as a String.
 	 * @return the every specific type of ship as a String.
 	 */
 	public abstract String getShipType(); 
 	
 	/**
-	 * check if it is okay to put a ship of this length with its bow in this location.
+	 * Check if it is okay to put a ship of this length with its bow in this location.
 	 * @param row
 	 *        the bowRow of the ship
 	 * @param column
@@ -164,7 +164,7 @@ public abstract class Ship {
 	}
 	
 	/**
-	 * check if there are another ships around of the given row and column.
+	 * Check if there are another ships around of the given row and column.
 	 * @param row
 	 *        the bowRow of the ship
 	 * @param column
@@ -219,7 +219,7 @@ public abstract class Ship {
 	}
 	
 	/**
-	 * check if hit a part of the ship occupies the given row and column, and the ship hasn’t been sunk.
+	 * Check if hit a part of the ship occupies the given row and column, and the ship hasn’t been sunk.
 	 * @param row
 	 *        the bowRow of the ship
 	 * @param column
@@ -243,7 +243,7 @@ public abstract class Ship {
 	}
 	
 	/**
-	 * check if every part of the ship has been hit.
+	 * Check if every part of the ship has been hit.
 	 * @return true/false if every part of the ship has been hit. or not.
 	 */
 	boolean isSunk() {
